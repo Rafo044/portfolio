@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interactive Portfolio</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #121212;
+      color: #eee;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #1f1f1f;
+      padding: 1rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+
+    header .logo {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #6ce7b7;
+      letter-spacing: 2px;
+      cursor: default;
+    }
+
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      color: #6ce7b7;
+    }
+
+    main {
+      padding: 120px 30px 50px 30px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 80px;
+    }
+
+    /* Home section */
+    #home {
+      text-align: center;
+      padding-top: 40px;
+    }
+
+    #home h1 {
+      font-size: 3rem;
+      margin-bottom: 0.3rem;
+      color: #6ce7b7;
+    }
+
+    #home h2 {
+      font-weight: 400;
+      color: #a0a0a0;
+      margin-bottom: 1rem;
+    }
+
+    #home p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #bbb;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background: transparent;
+      border: 2px solid #6ce7b7;
+      color: #6ce7b7;
+      padding: 0.75rem 1.8rem;
+      font-size: 1.1rem;
+      margin: 1.5rem 0;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      text-decoration: none;
+      user-select: none;
+    }
+
+    .btn:hover {
+      background: #6ce7b7;
+      color: #121212;
+      box-shadow: 0 0 8px #6ce7b7;
+    }
+
+    /* Projects grid */
+    #projects .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background: #1f1f1f;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(108,231,183,0.3);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(108,231,183,0.6);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .project-info {
+      padding: 15px 20px;
+    }
+
+    .project-info h3 {
+      margin-bottom: 10px;
+      color: #6ce7b7;
+    }
+
+    .project-info p {
+      font-size: 0.9rem;
+      color: #ccc;
+      line-height: 1.3;
+    }
+
+    /* Contact form */
+    #contact form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #contact label {
+      margin-top: 15px;
+      margin-bottom: 6px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    #contact input,
+    #contact textarea {
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      background: #2a2a2a;
+      color: #eee;
+      resize: vertical;
+      transition: background-color 0.3s ease;
+    }
+
+    #contact input:focus,
+    #contact textarea:focus {
+      outline: none;
+      background-color: #3b3b3b;
+    }
+
+    #contact button {
+      margin-top: 20px;
+      align-self: flex-start;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.85rem;
+      color: #555;
+      border-top: 1px solid #333;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      header {
+        padding: 1rem 1.5rem;
+      }
+
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+      }
+
+      #home h1 {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">RAFAEL</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="portfolio.html" target="_blank">Portfolio</a>
+    <a href="projects.html" target="_blank">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section id="home">
+    <h1>Hello, I'm Rafael</h1>
+    <h2>Full Stack Developer & Designer</h2>
+    <p>Passionate about creating beautiful, interactive web experiences. Explore my projects and get in touch!</p>
+    <a href="projects.html" class="btn" target="_blank">View Projects</a>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am a developer with a passion for clean code, modern design, and innovative solutions. Experienced in JavaScript, Python, and cloud technologies.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-list">
+      <div class="project-card" tabindex="0">
+        <img src="https://source.unsplash.com/400x300/?code" alt="Project 1" class="project-image" />
+        <div class="project-info">
+          <h3>Interactive Portfolio Website</h3>
+          <p>A modern portfolio website with smooth animations and responsive design.</p>
+        </div>
+      </div>
+      <div class="project-card" tabindex="0">
+        <img src="https://source.unsplash.com/400x300/?app" alt="Project 2" class="project-image" />
+        <div class="project-info">
+          <h3>Task Management App</h3>
+          <p>A web app to organize and prioritize your daily tasks with deadlines.</p>
+        </div>
+      </div>
+      <div class="project-card" tabindex="0">
+        <img src="https://source.unsplash.com/400x300/?dashboard" alt="Project 3" class="project-image" />
+        <div class="project-info">
+          <h3>Analytics Dashboard</h3>
+          <p>Visualize complex data through interactive charts and graphs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm" onsubmit="return handleSubmit(event)">
+      <label for="name">Name</label>
+      <input type="text" id="name" required placeholder="Your name" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required placeholder="Your email" />
+
+      <label for="message">Message</label>
+      <textarea id="message" rows="5" required placeholder="Write your message..."></textarea>
+
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Rafael Alikhanli. All rights reserved.
+</footer>
+
+<script>
+  // Simple form submission simulation
+  function handleSubmit(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !email || !message) {
+      alert('Please fill in all fields.');
+      return false;
+    }
+
+    alert(`Thank you, ${name}! Your message has been received.`);
+    event.target.reset();
+    return false;
+  }
+</script>
+
+</body>
+</html>
+
