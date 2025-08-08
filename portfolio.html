@@ -5,65 +5,167 @@
   <title>Portfolio – Rafael Alikhanli</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    :root {
+      --bg-dark: #121212;
+      --bg-light: #1f1f1f;
+      --text-main: #eee;
+      --text-muted: #bbb;
+      --accent: #6ce7b7;
+      --accent-light: #a0f4ce;
+      --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
     body {
-      background: #121212;
-      color: #eee;
-      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-main);
       padding: 60px 20px;
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
-      color: #6ce7b7;
+      color: var(--accent);
       margin-bottom: 1rem;
+      font-size: 2.4rem;
+      text-align: center;
     }
 
     h2 {
-      color: #a0f4ce;
-      margin-top: 2rem;
+      color: var(--accent-light);
+      margin-top: 2.5rem;
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid #333;
+      padding-bottom: 5px;
     }
 
     p {
       line-height: 1.6;
-      color: #ccc;
+      color: var(--text-muted);
     }
 
     ul {
-      list-style: square;
-      margin-left: 20px;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      margin: 8px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+
+    /* Skills badges */
+    .skills-list li {
+      display: inline-block;
+      background: var(--bg-light);
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      padding: 6px 14px;
+      margin: 5px;
+      font-size: 0.9rem;
+      color: var(--accent);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .skills-list li:hover {
+      background: var(--accent);
+      color: var(--bg-dark);
+    }
+
+    /* Card style for Education & Experience */
+    .card-list li {
+      background: var(--bg-light);
+      border-radius: 10px;
+      padding: 15px 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .card-list li:hover {
+      transform: translateY(-5px);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 40px 15px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Portfolio – Rafael Alikhanli 
-  </h1>
 
-  <h2>About Me</h2>
-  <p>I’m beginner in data engineering and learning how to work with data. I try to understand ETL, data warehouse and use tools like SQL, Python. I want to grow in this field and work on real data projects in future.</p>
+  <h1>Portfolio – Rafael Alikhanli</h1>
 
-  <h2>Education</h2>
-  <ul>
-    <li> Bachelor of Computer Science – Azerbaijan State Oil and Industry University</li>
-    <li> Master of Data Science – Azerbaijan Cooperation University</li>
-  </ul>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m a beginner in data engineering and learning how to work with data. I try to understand ETL, data warehouses, and use tools like SQL, Python. I want to grow in this field and work on real data projects in the future.</p>
+  </section>
 
-  <h2>Skills</h2>
-  <ul>
-    <li>Languages: JavaScript, Python, SQL, PL/pgSQL</li>
-    <li>Tools: PostgreSQL, Airflow, Git, Metabase</li>
-    <li></li>
-  </ul>
+  <section id="education">
+    <h2>Education</h2>
+    <ul class="card-list">
+      <li>Bachelor of Computer Science – Azerbaijan State Oil and Industry University</li>
+      <li>Master of Data Science – Azerbaijan Cooperation University</li>
+    </ul>
+  </section>
 
-  <h2>Experience</h2>
-  <p>I have worked on real-time dashboards, portfolio sites, transaction systems and analytics tools using PostgreSQL, Airflow and JavaScript frameworks.</p>
-  <h2>Certified</h2>
-  <ul>
-    <li>IBM Data Engineering Professional Certificate</li>
-  </ul>
-  <script>
-    document.getElementById("demo").innerHTML = "Hello JavaScript!";
-  </script> 
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>JavaScript</li>
+      <li>Python</li>
+      <li>SQL</li>
+      <li>PL/pgSQL</li>
+      <li>PostgreSQL</li>
+      <li>Airflow</li>
+      <li>Git</li>
+      <li>Metabase</li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul class="card-list">
+      <li>I have worked on real-time dashboards, portfolio sites, transaction systems and analytics tools using PostgreSQL, Airflow and JavaScript frameworks.</li>
+    </ul>
+  </section>
+
+  <section id="certifications">
+    <h2>Certified</h2>
+    <ul class="card-list">
+      <li>IBM Data Engineering Professional Certificate</li>
+    </ul>
+  </section>
+
+  <footer>
+    &copy; 2025 Rafael Alikhanli. All rights reserved.
+  </footer>
+
 </body>
 </html>
 
