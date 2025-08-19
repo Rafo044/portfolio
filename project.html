@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Projects – Rafael</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">RAFAEL ALIKHANLI</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="project.html" aria-current="page">Projects</a>
+    <a href="blog.html">Blog</a>
+    <button id="themeToggle" aria-pressed="false" title="Toggle theme">Light Mode</button>
+  </nav>
+</header>
+
+<main>
+  <h1 style="text-align:center; margin-bottom:36px; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
+    Projects
+  </h1>
+
+  <div id="projects" class="project-list"></div>
+</main>
+
+<footer>
+  &copy; 2025 Rafael Alikhanli. All rights reserved.
+</footer>
+
+<script>
+(function(){
+  const container = document.getElementById('projects');
+  const projects = [
+    {
+      title: 'Interactive Portfolio',
+      description: 'Modern portfolio with smooth animations and responsive layout.',
+      imageSrc: 'images/portfolio.png'
+    },
+    {
+      title: 'Task Manager App',
+      description: 'Organize and prioritize daily tasks with deadlines and reminders.',
+      imageSrc: 'images/task-manager.png'
+    },
+    {
+      title: 'Analytics Dashboard',
+      description: 'Visualize complex data with interactive charts and graphs.',
+      imageSrc: 'images/analytics.png'
+    }
+  ];
+
+  function buildCard({title, description, imageSrc}){
+    const card = document.createElement('div');
+    card.className = 'project-card';
+
+    const thumb = document.createElement('div');
+    thumb.className = 'thumbnail';
+    if(imageSrc){
+      const img = document.createElement('img');
+      img.src = imageSrc;
+      img.alt = title;
+      img.loading = 'lazy';
+      thumb.appendChild(img);
+    }
+    card.appendChild(thumb);
+
+    const info = document.createElement('div');
+    info.className = 'project-info';
+
+    const h3 = document.createElement('h3');
+    h3.textContent = title;
+    info.appendChild(h3);
+
+    if(description){
+      const p = document.createElement('p');
+      p.textContent = description;
+      info.appendChild(p);
+    }
+
+    card.appendChild(info);
+    return card;
+  }
+
+  projects.forEach(proj => container.appendChild(buildCard(proj)));
+})();
+</script>
+
+</body>
+</html>
+

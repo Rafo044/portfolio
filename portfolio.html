@@ -1,98 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Portfolio – Rafael Alikhanli</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    body {
-      background: #121212;
-      color: #eee;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
-      line-height: 1.6;
-    }
-
-    h1 {
-      color: #6ce7b7;
-      margin-bottom: 1.5rem;
-      font-size: 2.2rem;
-      text-align: center;
-    }
-
-    h2 {
-      color: #a0f4ce;
-      margin-top: 2.5rem;
-      margin-bottom: 0.8rem;
-      font-size: 1.4rem;
-      border-bottom: 1px solid #333;
-      padding-bottom: 5px;
-    }
-
-    p {
-      color: #ccc;
-      margin-bottom: 1rem;
-    }
-
-    ul {
-      list-style: square;
-      margin-left: 20px;
-      color: #ccc;
-    }
-
-    ul li {
-      margin-bottom: 8px;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.85rem;
-      color: #555;
-      border-top: 1px solid #333;
-      padding-top: 10px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>Portfolio – Rafael Alikhanli</h1>
+<header>
+  <div class="logo">RAFAEL ALIKHANLI</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html" aria-current="page">Portfolio</a>
+    <a href="project.html">Projects</a>
+    <a href="blog.html">Blog</a>
+    <button id="themeToggle" aria-pressed="false" title="Toggle theme">Light Mode</button>
+  </nav>
+</header>
 
-  <h2>About Me</h2>
-  <p>
-    I’m a beginner in data engineering, learning to work with data and understand ETL processes, 
-    data warehouses, and tools like SQL and Python. My goal is to gain practical experience 
-    and work on impactful real-world projects in the future.
-  </p>
+<main>
+  <!-- Portfolio Intro -->
+  <section id="portfolio-intro" class="card optimized">
+    <h1>Portfolio – Rafael Alikhanli</h1>
+    <p style="text-align:center; max-width:760px; margin:0 auto; color:rgba(255,255,255,0.85);">
+      Beginner in data engineering, learning ETL, data warehouses, SQL, Python, and building projects.
+    </p>
+  </section>
 
-  <h2>Education</h2>
-  <ul>
-    <li>Bachelor of Computer Science – Azerbaijan State Oil and Industry University</li>
-    <li>Master of Data Science – Azerbaijan Cooperation University</li>
-  </ul>
+  <!-- Experience -->
+  <section id="experience" class="card optimized">
+    <h2>Experience</h2>
+    <ul id="experience-list">
+      <li>Worked on dashboards, portfolio websites, transaction systems, and analytics tools using PostgreSQL, Airflow, and JavaScript.</li>
+      <!-- Daha çox təcrübə əlavə oluna bilər -->
+    </ul>
+  </section>
 
-  <h2>Skills</h2>
-  <ul>
-    <li>Languages: JavaScript, Python, SQL, PL/pgSQL</li>
-    <li>Tools: PostgreSQL, Airflow, Git, Metabase</li>
-  </ul>
+  <!-- Education -->
+  <section id="education" class="card optimized">
+    <h2>Education</h2>
+    <ul>
+      <li>Bachelor of Computer Science – Azerbaijan State Oil and Industry University</li>
+      <li>Master of Data Science – Azerbaijan Cooperation University</li>
+    </ul>
+  </section>
 
-  <h2>Experience</h2>
-  <p>
-    I have worked on real-time dashboards, portfolio websites, transaction systems, and analytics 
-    tools using PostgreSQL, Airflow, and JavaScript frameworks.
-  </p>
+  <!-- Skills -->
+  <section id="skills" class="card optimized">
+    <h2>Skills</h2>
+    <ul>
+      <li>Languages: JavaScript, Python, SQL, PL/pgSQL</li>
+      <li>Tools: PostgreSQL, Airflow, Git, Metabase</li>
+    </ul>
+  </section>
 
-  <h2>Certifications</h2>
-  <ul>
-    <li>IBM Data Engineering Professional Certificate</li>
-  </ul>
+  <!-- Certifications -->
+  <section id="certifications" class="card optimized">
+    <h2>Certifications</h2>
+    <ul id="cert-list"></ul>
+  </section>
 
-  <footer>
-    &copy; 2025 Rafael Alikhanli. All rights reserved.
-  </footer>
+  <!-- Contact / Social Media -->
+  <section id="contact" class="card optimized">
+    <h2>Contact & Social Media</h2>
+    <form id="contactForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required>
 
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+
+    <div id="social-media" style="margin-top:20px;"></div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Rafael Alikhanli. All rights reserved.
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
+
