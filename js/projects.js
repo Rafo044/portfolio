@@ -23,14 +23,40 @@ function extractProjectDescription(markdown) {
     // Find the Overview section
     const overviewMatch = markdown.match(/##\s+Overview\s*\n(.+?)(?=\n##|\n$)/s);
     if (overviewMatch) {
-        return overviewMatch[1].trim();
+        return overviewMatch[1].trim().substring(0, 200) + '...';
     }
     
-    // Fallback: get first paragraph after title and image
-    const withoutTitle = markdown.replace(/^#\s+.+$/m, '').trim();
-    const withoutImage = withoutTitle.replace(/!\[.*?\]\(.*?\)/, '').trim();
-    const firstPara = withoutImage.split('\n\n')[0];
-    return firstPara || 'No description available.';
+    // Find "About" section
+    const aboutMatch = markdown.match(/##\s+.*?About.*?\n(.+?)(?=\n##|\n$)/si);
+    if (aboutMatch) {
+        let desc = aboutMatch[1].trim();
+        // Remove extra whitespace and newlines
+        desc = desc.replace(/\s+/g, ' ').trim();
+        return desc.substring(0, 200) + (desc.length > 200 ? '...' : '');
+    }
+    
+    // Find "Introduction" section
+    const introMatch = markdown.match(/##\s+.*?Introduction.*?\n(.+?)(?=\n##|\n$)/si);
+    if (introMatch) {
+        let desc = introMatch[1].trim();
+        desc = desc.replace(/\s+/g, ' ').trim();
+        return desc.substring(0, 200) + (desc.length > 200 ? '...' : '');
+    }
+    
+    // Fallback: get first meaningful paragraph after title and image
+    let content = markdown.replace(/^#\s+.+$/m, '').trim();
+    content = content.replace(/!\[.*?\]\(.*?\)/g, '').trim();
+    
+    // Skip empty lines and get first paragraph
+    const paragraphs = content.split('\n\n').filter(p => p.trim().length > 20);
+    if (paragraphs.length > 0) {
+        let desc = paragraphs[0].replace(/\s+/g, ' ').trim();
+        // Remove markdown formatting
+        desc = desc.replace(/[*_#`]/g, '');
+        return desc.substring(0, 200) + (desc.length > 200 ? '...' : '');
+    }
+    
+    return 'Data engineering project - Click to view details on GitHub';
 }
 
 // Create project card HTML with image - now redirects to external URL
@@ -62,20 +88,32 @@ async function loadProjects(featured = null) {
             projectsToLoad.map(async (slug) => {
                 try {
                     const config = projectConfig[slug];
-                    const response = await fetch(`projects/${config.file}`);
-                    if (!response.ok) throw new Error('Project not found');
-                    const markdown = await response.text();
+                    
+                    // Use config values if available, otherwise fetch from markdown
+                    let title = slug.replace(/-|_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                    let description = config.description || 'Data engineering project - Click to view details on GitHub';
+                    let image = config.image || '../assets/images/projects/default-project.jpg';
+                    
+                    // If markdown file exists, try to get title from it
+                    try {
+                        const response = await fetch(`projects/${config.file}`);
+                        if (response.ok) {
+                            const markdown = await response.text();
+                            title = extractProjectTitle(markdown);
+                        }
+                    } catch (e) {
+                        console.log(`Using config title for ${slug}`);
+                    }
                     
                     return {
                         slug: slug,
-                        title: extractProjectTitle(markdown),
-                        description: extractProjectDescription(markdown),
-                        image: extractProjectImage(markdown),
-                        url: config.url,
-                        markdown: markdown
+                        title: title,
+                        description: description,
+                        image: image,
+                        url: config.url
                     };
                 } catch (error) {
-                    console.error(`Error loading ${config.file}:`, error);
+                    console.error(`Error loading ${slug}:`, error);
                     return null;
                 }
             })

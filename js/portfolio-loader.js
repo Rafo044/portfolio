@@ -129,14 +129,26 @@ function parseCertificatesSection(content) {
     
     sections.forEach(section => {
         const lines = section.trim().split('\n');
-        const title = lines[0].trim();
+        const titleLine = lines[0].trim();
+        
+        // Parse markdown link format: [Title](URL)
+        const linkMatch = titleLine.match(/\[(.+?)\]\((.+?)\)/);
+        let title = titleLine;
+        let url = null;
+        
+        if (linkMatch) {
+            title = linkMatch[1];
+            url = linkMatch[2];
+        }
+        
         const institution = lines[1] && lines[1].includes('|') ? lines[1].split('|')[0].trim() : '';
         const date = lines[1] && lines[1].includes('|') ? lines[1].split('|')[1].trim() : lines[1] ? lines[1].trim() : '';
         
         certificates.push({
             title,
             institution,
-            date
+            date,
+            url
         });
     });
     
@@ -208,7 +220,9 @@ function renderSkills(skills) {
 function renderCertificates(certificates) {
     return certificates.map(cert => `
         <div class="cv-item">
-            <h3 class="cv-item-title">${cert.title}</h3>
+            <h3 class="cv-item-title">
+                ${cert.url ? `<a href="${cert.url}" target="_blank" rel="noopener noreferrer">${cert.title}</a>` : cert.title}
+            </h3>
             ${cert.institution ? `<p class="cv-item-subtitle">${cert.institution}</p>` : ''}
             <p class="cv-item-date">${cert.date}</p>
         </div>

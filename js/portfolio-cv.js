@@ -1,13 +1,5 @@
 // Portfolio CV page - Load project names
-
-const projectsConfig = [
-    { file: 'interactive-portfolio.md', slug: 'interactive-portfolio' },
-    { file: 'task-manager-app.md', slug: 'task-manager-app' },
-    { file: 'analytics-dashboard.md', slug: 'analytics-dashboard' },
-    { file: 'etl-pipeline.md', slug: 'etl-pipeline' },
-    { file: 'data-warehouse.md', slug: 'data-warehouse' },
-    { file: 'real-time-streaming.md', slug: 'real-time-streaming' }
-];
+// Now uses projectConfig from config.js
 
 // Extract title from markdown
 function extractTitle(markdown) {
@@ -33,15 +25,19 @@ async function loadCVProjects() {
     container.innerHTML = '<div class="loading">Loading projects...</div>';
     
     try {
+        // Get project slugs from config.js
+        const projectSlugs = Object.keys(projectConfig);
+        
         const projects = await Promise.all(
-            projectsConfig.map(async (config) => {
+            projectSlugs.map(async (slug) => {
                 try {
+                    const config = projectConfig[slug];
                     const response = await fetch(`projects/${config.file}`);
                     if (!response.ok) throw new Error('Project not found');
                     const markdown = await response.text();
                     return extractTitle(markdown);
                 } catch (error) {
-                    console.error(`Error loading ${config.file}:`, error);
+                    console.error(`Error loading ${slug}:`, error);
                     return null;
                 }
             })
