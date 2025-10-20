@@ -41,8 +41,8 @@ Focused on database systems, algorithms, and software engineering. Completed cou
 
 ## Certificates & Achievements
 
-### Python Project for Data Engineering
-Coursera | 2024 | [Python Project for Data Engineering](https://coursera.org/share/36d83ae108bfa0c9b32ee7c09a72e962)
+### [Python Project for Data Engineering](https://coursera.org/share/36d83ae108bfa0c9b32ee7c09a72e962)
+Coursera | 2024
 
 ### Data Engineering Specialization
 Coursera | 2023
