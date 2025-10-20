@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Rafael Alikhanli</title>
+    <title>Project Detail - Rafael Alikhanli</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -12,16 +12,11 @@
             <nav class="nav">
                 <a href="index.html" class="logo">RAFAEL ALIKHANLI</a>
                 <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link" data-i18n="nav_home">Home</a></li>
-                    <li><a href="portfolio.html" class="nav-link" data-i18n="nav_portfolio">Portfolio</a></li>
-                    <li><a href="projects.html" class="nav-link" data-i18n="nav_projects">Projects</a></li>
-                    <li><a href="blog.html" class="nav-link active" data-i18n="nav_blog">Blog</a></li>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
                 </ul>
-                <div class="lang-switcher">
-                    <button class="lang-btn" data-lang="en">EN</button>
-                    <button class="lang-btn" data-lang="fr">FR</button>
-                    <button class="lang-btn" data-lang="az">AZ</button>
-                </div>
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                     <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -43,20 +38,13 @@
     </header>
 
     <main>
-        <section class="page-header">
-            <div class="container">
-                <h1 class="page-title" data-i18n="page_title_blog">Blog</h1>
-                <p class="page-description" data-i18n="page_desc_blog">Thoughts and learnings about data engineering</p>
-            </div>
-        </section>
-
-        <section class="blog-section">
-            <div class="container">
-                <div class="blog-grid" id="blogGrid">
-                    <div class="loading">Loading blog posts...</div>
-                </div>
-            </div>
-        </section>
+        <article class="blog-content" id="projectContent">
+            <div class="loading">Loading project...</div>
+        </article>
+        
+        <div class="container" style="text-align: center; margin: 2rem 0;">
+            <a href="projects.html" class="btn btn-primary">← Back to Projects</a>
+        </div>
     </main>
 
     <footer class="footer">
@@ -66,8 +54,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="js/translations.js"></script>
     <script src="js/theme.js"></script>
-    <script src="js/blog.js"></script>
+    <script src="js/project-detail.js"></script>
 </body>
 </html>

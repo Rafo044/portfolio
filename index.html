@@ -1,84 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="utf-8">
-  <title>Rafael Alikhanli — Home</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafael Alikhanli - Data Engineer Intern</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-
-  <!-- Header (same on all pages) -->
-  <header>
-    <div class="logo">RAFAEL ALIKHANLI</div>
-    <nav>
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="project.html">Projects</a>
-      <a href="blog.html">Blog</a>
-      <button id="themeToggle" aria-pressed="false" title="Toggle theme">Light Mode</button>
-    </nav>
-  </header>
-
-  <main>
-    <!-- Hero (Versiya 1 look) -->
-    <section id="home">
-      <h1>Hello, I'm Rafael</h1>
-      <h2>Data Engineer Intern</h2>
-      <p>Passionate about working with data and building useful pipelines. Explore my learning journey and feel free to connect!</p>
-      <a class="btn" href="project.html">View Projects</a>
-
-      <!-- small projects preview (home) -->
-      <div style="width:100%; margin-top:28px; max-width:1000px;">
-        <h3 style="color:var(--accent-1); text-align:left; margin: 18px 0 10px;">Recent Projects</h3>
-        <div class="project-list">
-          <div class="project-card">
-            <div style="height:120px; background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.06)); border-radius:8px;"></div>
-            <h3>Interactive Portfolio</h3>
-            <p>Modern portfolio with smooth animations and responsive layout.</p>
-          </div>
-          <div class="project-card">
-            <div style="height:120px; background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.06)); border-radius:8px;"></div>
-            <h3>Task Manager App</h3>
-            <p>Organize and prioritize daily tasks with deadlines and reminders.</p>
-          </div>
-          <div class="project-card">
-            <div style="height:120px; background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.06)); border-radius:8px;"></div>
-            <h3>Analytics Dashboard</h3>
-            <p>Visualize complex data with interactive charts and graphs.</p>
-          </div>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">RAFAEL ALIKHANLI</a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link active" data-i18n="nav_home">Home</a></li>
+                    <li><a href="portfolio.html" class="nav-link" data-i18n="nav_portfolio">Portfolio</a></li>
+                    <li><a href="projects.html" class="nav-link" data-i18n="nav_projects">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link" data-i18n="nav_blog">Blog</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="fr">FR</button>
+                    <button class="lang-btn" data-lang="az">AZ</button>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </nav>
         </div>
-      </div>
-    </section>
+    </header>
 
-    <!-- About -->
-    <section id="about">
-      <div class="card">
-        <h2 style="margin:0 0 12px; font-size:1.4rem; font-weight:700; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
-          About Me
-        </h2>
-        <p style="margin-top:8px; color:inherit;">
-          I’m a beginner in data engineering, learning ETL, data warehouses, SQL, Python, and building projects to grow in this field.
-        </p>
-      </div>
-    </section>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span data-i18n="hero_greeting">Hello, I'm</span> <span class="highlight">Rafael</span>
+                    </h1>
+                    <p class="hero-subtitle" data-i18n="hero_role">Data Engineer Intern</p>
+                    <p class="hero-description" data-i18n="hero_description">
+                        Passionate about working with data and building useful pipelines. Explore my learning journey and feel free to connect!
+                    </p>
+                    <a href="projects.html" class="btn btn-primary" data-i18n="btn_view_projects">View Projects</a>
+                </div>
+            </div>
+        </section>
 
-    <!-- CTA / Contact small -->
-    <section id="contact-preview">
-      <div class="card">
-        <h3 style="margin:0 0 8px;">Let's connect</h3>
-        <p style="margin:0 0 12px;">Interested in collaborating? You can reach me via email or view my full portfolio.</p>
-        <a class="btn" href="portfolio.html">Open Portfolio</a>
-      </div>
-    </section>
+        <section class="recent-projects">
+            <div class="container">
+                <h2 class="section-title" data-i18n="section_recent_projects">Recent Projects</h2>
+                <div class="projects-grid" id="recentProjectsGrid">
+                    <!-- Projects will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
 
-  </main>
+        <section class="about">
+            <div class="container">
+                <div class="about-card">
+                    <h2 class="about-title" data-i18n="about_title">About Me</h2>
+                    <p class="about-text" data-i18n="about_text">
+                        I'm a beginner in data engineering, learning ETL, data warehouses, SQL, Python, and building projects to grow in this field.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-  <footer>
-    &copy; 2025 Rafael Alikhanli. All rights reserved.
-  </footer>
+        <section class="social-media-section">
+            <div class="container">
+                <h2 class="section-title">Connect With Me</h2>
+                <div class="social-media-links" id="socialMediaLinks">
+                    <!-- Social media links will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <script src="script.js"></script>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Rafael Alikhanli. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/translations.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/social-media.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
-

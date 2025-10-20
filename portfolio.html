@@ -1,91 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <title>Portfolio – Rafael Alikhanli</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Rafael Alikhanli</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">RAFAEL ALIKHANLI</a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link" data-i18n="nav_home">Home</a></li>
+                    <li><a href="portfolio.html" class="nav-link active" data-i18n="nav_portfolio">Portfolio</a></li>
+                    <li><a href="projects.html" class="nav-link" data-i18n="nav_projects">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link" data-i18n="nav_blog">Blog</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="fr">FR</button>
+                    <button class="lang-btn" data-lang="az">AZ</button>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
 
-<header>
-  <div class="logo">RAFAEL ALIKHANLI</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="portfolio.html" aria-current="page">Portfolio</a>
-    <a href="project.html">Projects</a>
-    <a href="blog.html">Blog</a>
-    <button id="themeToggle" aria-pressed="false" title="Toggle theme">Light Mode</button>
-  </nav>
-</header>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title" data-i18n="page_title_portfolio">Portfolio / CV</h1>
+                <p class="page-description" data-i18n="page_desc_portfolio">Professional experience, education, and achievements</p>
+            </div>
+        </section>
 
-<main>
-  <!-- Portfolio Intro -->
-  <section id="portfolio-intro" class="card optimized">
-    <h1>Portfolio – Rafael Alikhanli</h1>
-    <p style="text-align:center; max-width:760px; margin:0 auto; color:rgba(255,255,255,0.85);">
-      Beginner in data engineering, learning ETL, data warehouses, SQL, Python, and building projects.
-    </p>
-  </section>
+        <section class="cv-section">
+            <div class="container">
+                <div class="cv-container">
+                    <!-- Profile Summary -->
+                    <div class="cv-card">
+                        <h2 class="cv-section-title" data-i18n="cv_profile">Profile</h2>
+                        <div id="cvProfile">
+                            <!-- Content loaded from portfolio/cv.md -->
+                        </div>
+                    </div>
 
-  <!-- Experience -->
-  <section id="experience" class="card optimized">
-    <h2>Experience</h2>
-    <ul id="experience-list">
-      <li>Worked on dashboards, portfolio websites, transaction systems, and analytics tools using PostgreSQL, Airflow, and JavaScript.</li>
-      <!-- Daha çox təcrübə əlavə oluna bilər -->
-    </ul>
-  </section>
+                    <!-- Education -->
+                    <div class="cv-card">
+                        <h2 class="cv-section-title" data-i18n="cv_education">Education</h2>
+                        <div id="cvEducation">
+                            <!-- Content loaded from portfolio/cv.md -->
+                        </div>
+                    </div>
 
-  <!-- Education -->
-  <section id="education" class="card optimized">
-    <h2>Education</h2>
-    <ul>
-      <li>Bachelor of Computer Science – Azerbaijan State Oil and Industry University</li>
-      <li>Master of Data Science – Azerbaijan Cooperation University</li>
-    </ul>
-  </section>
+                    <!-- Work Experience -->
+                    <div class="cv-card">
+                        <h2 class="cv-section-title" data-i18n="cv_experience">Work Experience</h2>
+                        <div id="cvExperience">
+                            <!-- Content loaded from portfolio/cv.md -->
+                        </div>
+                    </div>
 
-  <!-- Skills -->
-  <section id="skills" class="card optimized">
-    <h2>Skills</h2>
-    <ul>
-      <li>Languages: JavaScript, Python, SQL, PL/pgSQL</li>
-      <li>Tools: PostgreSQL, Airflow, Git, Metabase</li>
-    </ul>
-  </section>
+                    <!-- Projects -->
+                    <div class="cv-card">
+                        <h2 class="cv-section-title" data-i18n="cv_projects">Key Projects</h2>
+                        <div class="cv-projects-list" id="cvProjectsList">
+                            <!-- Projects will be loaded dynamically -->
+                        </div>
+                    </div>
 
-  <!-- Certifications -->
-  <section id="certifications" class="card optimized">
-    <h2>Certifications</h2>
-    <ul id="cert-list"></ul>
-  </section>
+                    <!-- Skills -->
+                    <div class="cv-card">
+                        <h2 class="cv-section-title" data-i18n="cv_skills">Technical Skills</h2>
+                        <div class="skills-grid" id="cvSkills">
+                            <!-- Content loaded from portfolio/cv.md -->
+                        </div>
+                    </div>
 
-  <!-- Contact / Social Media -->
-  <section id="contact" class="card optimized">
-    <h2>Contact & Social Media</h2>
-    <form id="contactForm">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" placeholder="Your name" required>
+                    <!-- Certificates -->
+                    <div class="cv-card">
+                        <h2 class="cv-section-title" data-i18n="cv_certificates">Certificates & Achievements</h2>
+                        <div id="cvCertificates">
+                            <!-- Content loaded from portfolio/cv.md -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Your email" required>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Rafael Alikhanli. All rights reserved.</p>
+        </div>
+    </footer>
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
-
-      <button type="submit" class="btn">Send Message</button>
-    </form>
-
-    <div id="social-media" style="margin-top:20px;"></div>
-  </section>
-</main>
-
-<footer>
-  &copy; 2025 Rafael Alikhanli. All rights reserved.
-</footer>
-
-<script src="script.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/translations.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/portfolio-loader.js"></script>
+    <script src="js/portfolio-cv.js"></script>
 </body>
 </html>
-
