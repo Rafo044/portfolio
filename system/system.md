@@ -186,6 +186,24 @@ Group by categories:
 8. ✓ No null values, use "" or [] instead
 9. ✓ JSON is parseable and valid
 
+The most important rule — do not create, change or try to fix any links that are not in the file.
+
+Rules:
+
+Read the file line by line and extract only real, complete links (starting with http:// or https://).
+
+Do not add any additional characters, slashes (/), spaces, newlines or escape characters to any URL.
+
+If the link format is incomplete (for example: “example.com”), do not accept it as a complete URL.
+
+For each link you extract, be sure to check that line to make sure the link is actually there.
+
+If there are no links in the file — the result should be an empty list.
+
+Links that are not in the file but that you guessed or “corrected” are considered errors.
+
+
+
 ### 9. Content Quality Rules
 
 - **Be specific**: Use concrete examples and real data
@@ -209,6 +227,8 @@ Group by categories:
    - Enhance project descriptions with real data
    - Add metrics (stars, forks, contributions)
    - Include concrete achievements
+
+
 
 ### 11. Error Handling
 
